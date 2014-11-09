@@ -2,7 +2,6 @@
 {
     using System.Web.Mvc;
 
-    using TapestryWorld.Data;
     using TapestryWorld.Data.Common.Repository;
     using TapestryWorld.Data.Models;
 

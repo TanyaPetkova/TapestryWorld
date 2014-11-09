@@ -12,7 +12,7 @@ namespace TapestryWorld.Web.App_Start
     using Ninject.Web.Common;
     using System.Data.Entity;
     using TapestryWorld.Data;
-using TapestryWorld.Data.Common.Repository;
+    using TapestryWorld.Data.Common.Repository;
 
     public static class NinjectWebCommon
     {
