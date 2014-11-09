@@ -25,6 +25,8 @@
 
         public IDbSet<Category> Categories { get; set; }
 
+        public IDbSet<Tapestry> TapestriesForSale { get; set; }
+
         public override int SaveChanges()
         {
             this.ApplyAuditInfoRules();
