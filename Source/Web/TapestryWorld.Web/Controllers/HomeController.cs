@@ -10,12 +10,6 @@
     {
         private IRepository<Tapestry> tapestries;
 
-        //Poor man's DI
-        public HomeController()
-            : this(new GenericRepository<Tapestry>(new ApplicationDbContext()))
-        {
-        }
-
         public HomeController(IRepository<Tapestry> tapestries)
         {
             this.tapestries = tapestries;
