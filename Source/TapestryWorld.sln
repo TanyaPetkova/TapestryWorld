@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4EE1C166
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TapestryWorld.Web", "Web\TapestryWorld.Web\TapestryWorld.Web.csproj", "{39A81CA6-5993-43D8-864D-A042EA4BC7F7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TapestryWorld.Data.Common", "Data\TapestryWorld.Data.Common\TapestryWorld.Data.Common.csproj", "{DF314F93-BE90-4710-8010-BF1F11C6E746}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{39A81CA6-5993-43D8-864D-A042EA4BC7F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39A81CA6-5993-43D8-864D-A042EA4BC7F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39A81CA6-5993-43D8-864D-A042EA4BC7F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF314F93-BE90-4710-8010-BF1F11C6E746}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF314F93-BE90-4710-8010-BF1F11C6E746}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF314F93-BE90-4710-8010-BF1F11C6E746}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF314F93-BE90-4710-8010-BF1F11C6E746}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,5 +55,6 @@ Global
 		{DDECF419-67FF-467D-8C51-95125AA267E2} = {0F310595-5623-4CC3-86AF-01F010D19876}
 		{637863D6-8F41-47B2-8E8C-71B890011547} = {0F310595-5623-4CC3-86AF-01F010D19876}
 		{39A81CA6-5993-43D8-864D-A042EA4BC7F7} = {34C3DBD4-E354-4A7F-89C0-A24BEB335E32}
+		{DF314F93-BE90-4710-8010-BF1F11C6E746} = {0F310595-5623-4CC3-86AF-01F010D19876}
 	EndGlobalSection
 EndGlobal

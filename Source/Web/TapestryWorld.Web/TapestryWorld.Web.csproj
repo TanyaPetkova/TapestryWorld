@@ -255,6 +255,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Data\TapestryWorld.Data.Common\TapestryWorld.Data.Common.csproj">
+      <Project>{df314f93-be90-4710-8010-bf1f11c6e746}</Project>
+      <Name>TapestryWorld.Data.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\TapestryWorld.Data.Models\TapestryWorld.Data.Models.csproj">
       <Project>{637863d6-8f41-47b2-8e8c-71b890011547}</Project>
       <Name>TapestryWorld.Data.Models</Name>
