@@ -11,6 +11,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using TapestryWorld.Web.Models;
+using TapestryWorld.Data.Models;
+using TapestryWorld.Data;
 
 namespace TapestryWorld.Web
 {

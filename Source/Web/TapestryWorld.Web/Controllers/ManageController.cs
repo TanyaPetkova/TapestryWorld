@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using TapestryWorld.Web.Models;
+using TapestryWorld.Data.Models;
 
 namespace TapestryWorld.Web.Controllers
 {

@@ -6,6 +6,8 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using TapestryWorld.Web.Models;
+using TapestryWorld.Data;
+using TapestryWorld.Data.Models;
 
 namespace TapestryWorld.Web
 {
