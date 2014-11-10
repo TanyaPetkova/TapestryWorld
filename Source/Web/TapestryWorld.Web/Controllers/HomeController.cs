@@ -2,8 +2,10 @@
 {
     using System.Web.Mvc;
 
+    using AutoMapper.QueryableExtensions;
     using TapestryWorld.Data.Common.Repository;
     using TapestryWorld.Data.Models;
+    using TapestryWorld.Web.ViewModels.Home;
 
     public class HomeController : Controller
     {
@@ -16,7 +18,8 @@
 
         public ActionResult Index()
         {
-            var tapestries = this.tapestries.All();
+            var tapestries = this.tapestries.All().Project().To<IndexTapestryViewModel>();
+
             return View(tapestries);
         }
     }
