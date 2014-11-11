@@ -1,20 +1,44 @@
 ﻿namespace TapestryWorld.Data.Models
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     using TapestryWorld.Data.Common.Models;
 
-    public class Tapestry : AuditInfo, IDeletableEntity
+    public class Tapestry : AuditInfo
     {
+        public Tapestry()
+        {
+            this.Users = new HashSet<ApplicationUser>();
+        }
+
+        [Key]
         public int Id { get; set; }
 
         [MaxLength(100)]
         public string Name { get; set; }
-        // TODO: Designer, 
 
-        public bool IsDeleted { get; set; }
+        public string DesignerName { get; set; }
 
-        public DateTime? DeletedOn { get; set;  }
+        public decimal Price { get; set; }
+
+        public bool? InStock { get; set; }
+
+        public StitchType StitchType { get; set; }
+
+        public int? Count { get; set; }
+
+        public int? DimensionId { get; set; }
+
+        public virtual Dimension Dimension { get; set; }
+
+        public byte[] Image { get; set; }
+
+        public int? CategoryId { get; set; }
+
+        public Category Category { get; set; }
+
+        public virtual ICollection<ApplicationUser> Users { get; set; }
     }
 }

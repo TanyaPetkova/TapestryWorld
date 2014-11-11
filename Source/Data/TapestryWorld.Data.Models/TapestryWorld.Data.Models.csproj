@@ -54,7 +54,11 @@
   <ItemGroup>
     <Compile Include="ApplicationUser.cs" />
     <Compile Include="Category.cs" />
+    <Compile Include="Dimension.cs" />
+    <Compile Include="ProductImage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StitchType.cs" />
+    <Compile Include="StitchedTapestry.cs" />
     <Compile Include="Tapestry.cs" />
   </ItemGroup>
   <ItemGroup>

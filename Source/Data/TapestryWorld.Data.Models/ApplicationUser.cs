@@ -9,6 +9,7 @@
     using Microsoft.AspNet.Identity.EntityFramework;
 
     using TapestryWorld.Data.Common.Models;
+    using System.Collections.Generic;
 
     public class ApplicationUser : IdentityUser, IAuditInfo, IDeletableEntity
     {
@@ -16,6 +17,8 @@
         {
             // This will prevent UserManager,CreateAsync from causing exception
             this.CreatedOn = DateTime.Now;
+            this.Tapestries = new HashSet<Tapestry>();
+            this.StitchedTapestries = new HashSet<StitchedTapestry>();
         }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
@@ -25,6 +28,10 @@
             // Add custom user claims here
             return userIdentity;
         }
+
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
 
         public DateTime CreatedOn { get; set; }
 
@@ -36,6 +43,10 @@
         public bool IsDeleted { get; set; }
 
         public DateTime? DeletedOn { get; set; }
+
+        public virtual ICollection<Tapestry> Tapestries { get; set; }
+
+        public virtual ICollection<StitchedTapestry> StitchedTapestries { get; set; }
     }
 }
  
