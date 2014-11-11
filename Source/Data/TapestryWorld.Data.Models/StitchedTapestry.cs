@@ -6,14 +6,13 @@
     {
         public StitchedTapestry()
         {
-            this.Users = new HashSet<ApplicationUser>();
+            this.Users = new HashSet<User>();
         }
 
         public int Id { get; set; }
 
         public byte[] ProductImage { get; set; }
 
-        public virtual ICollection<ApplicationUser> Users { get; set; }
-
+        public virtual ICollection<User> Users { get; set; }
     }
 }

@@ -6,21 +6,16 @@
 
     using Microsoft.AspNet.Identity.EntityFramework;
 
-    using TapestryWorld.Data.Models;
-    using TapestryWorld.Data.Migrations;
     using TapestryWorld.Data.Common.Models;
+    using TapestryWorld.Data.Migrations;
+    using TapestryWorld.Data.Models;
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<User>
     {
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext, Configuration>());
-        }
-
-        public static ApplicationDbContext Create()
-        {
-            return new ApplicationDbContext();
         }
 
         public IDbSet<Category> Categories { get; set; }
@@ -30,6 +25,11 @@
         public IDbSet<StitchedTapestry> StitchedTapestries { get; set; }
 
         public IDbSet<Dimension> Dimensions { get; set; }
+
+        public static ApplicationDbContext Create()
+        {
+            return new ApplicationDbContext();
+        }
 
         public override int SaveChanges()
         {

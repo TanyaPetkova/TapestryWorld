@@ -7,7 +7,7 @@
     using TapestryWorld.Data.Models;
     using TapestryWorld.Web.ViewModels.Home;
 
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private IRepository<Tapestry> tapestries;
 
@@ -18,9 +18,12 @@
 
         public ActionResult Index()
         {
-            var tapestries = this.tapestries.All().Project().To<IndexTapestryViewModel>();
+            return View();
+        }
 
-            return View(tapestries);
+        public ActionResult TestImage()
+        {
+            return File("~/Content/3866_African Lions In The Savannah Grasses.jpg", "image/jpg");
         }
     }
 }

@@ -10,7 +10,7 @@
     {
         public Tapestry()
         {
-            this.Users = new HashSet<ApplicationUser>();
+            this.Users = new HashSet<User>();
         }
 
         [Key]
@@ -39,6 +39,6 @@
 
         public Category Category { get; set; }
 
-        public virtual ICollection<ApplicationUser> Users { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
 }

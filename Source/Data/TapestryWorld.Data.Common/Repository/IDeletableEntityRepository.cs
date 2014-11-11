@@ -7,4 +7,3 @@
         IQueryable<T> AllWithDeleted();
     }
 }
-
