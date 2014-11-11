@@ -25,7 +25,11 @@
 
         public IDbSet<Category> Categories { get; set; }
 
-        public IDbSet<Tapestry> TapestriesForSale { get; set; }
+        public IDbSet<Tapestry> Tapestries { get; set; }
+
+        public IDbSet<StitchedTapestry> StitchedTapestries { get; set; }
+
+        public IDbSet<Dimension> Dimensions { get; set; }
 
         public override int SaveChanges()
         {
