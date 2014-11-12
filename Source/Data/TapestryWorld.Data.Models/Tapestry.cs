@@ -4,9 +4,7 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    using TapestryWorld.Data.Common.Models;
-
-    public class Tapestry : AuditInfo
+    public class Tapestry 
     {
         public Tapestry()
         {
@@ -16,6 +14,7 @@
         [Key]
         public int Id { get; set; }
 
+        [Required]
         [MaxLength(100)]
         public string Name { get; set; }
 
@@ -37,7 +36,7 @@
 
         public int? CategoryId { get; set; }
 
-        public Category Category { get; set; }
+        public virtual Category Category { get; set; }
 
         public virtual ICollection<User> Users { get; set; }
     }

@@ -9,9 +9,7 @@
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
 
-    using TapestryWorld.Data.Common.Models;
-
-    public class User : IdentityUser, IAuditInfo, IDeletableEntity
+    public class User : IdentityUser // , IAuditInfo, IDeletableEntity
     {
         public User()
         {
@@ -19,6 +17,8 @@
             this.CreatedOn = DateTime.Now;
             this.Tapestries = new HashSet<Tapestry>();
             this.StitchedTapestries = new HashSet<StitchedTapestry>();
+            this.Comments = new HashSet<Comment>();
+            this.Votes = new HashSet<Vote>();
         }
 
         public string FirstName { get; set; }
@@ -39,6 +39,10 @@
         public virtual ICollection<Tapestry> Tapestries { get; set; }
 
         public virtual ICollection<StitchedTapestry> StitchedTapestries { get; set; }
+
+        public virtual ICollection<Comment> Comments { get; set; }
+
+        public virtual ICollection<Vote> Votes { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {

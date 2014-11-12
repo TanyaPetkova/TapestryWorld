@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Comment.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Dimension.cs" />
@@ -59,6 +60,7 @@
     <Compile Include="StitchType.cs" />
     <Compile Include="StitchedTapestry.cs" />
     <Compile Include="Tapestry.cs" />
+    <Compile Include="Vote.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -66,7 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TapestryWorld.Data.Common\TapestryWorld.Data.Common.csproj">
-      <Project>{df314f93-be90-4710-8010-bf1f11c6e746}</Project>
+      <Project>{DF314F93-BE90-4710-8010-BF1F11C6E746}</Project>
       <Name>TapestryWorld.Data.Common</Name>
     </ProjectReference>
   </ItemGroup>
