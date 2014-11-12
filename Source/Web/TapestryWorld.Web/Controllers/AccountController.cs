@@ -16,6 +16,7 @@
     public class AccountController : Controller
     {
         private ApplicationUserManager _userManager;
+        private ApplicationSignInManager _signInManager;
 
         public AccountController()
         {
@@ -47,8 +48,6 @@
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
-
-        private ApplicationSignInManager _signInManager;
 
         public ApplicationSignInManager SignInManager
         {

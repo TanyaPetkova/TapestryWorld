@@ -10,7 +10,7 @@ namespace TapestryWorld.Data.Migrations
 
     using TapestryWorld.Data.Models;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<TapestryWorldDbContext>
     {
         public Configuration()
         {
@@ -20,7 +20,7 @@ namespace TapestryWorld.Data.Migrations
             this.AutomaticMigrationDataLossAllowed = true;
         }
 
-        protected override void Seed(ApplicationDbContext context)
+        protected override void Seed(TapestryWorldDbContext context)
         {
             if (context.Tapestries.Any())
             {

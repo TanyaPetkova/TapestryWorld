@@ -15,6 +15,8 @@
     [Authorize]
     public class ManageController : Controller
     {
+        private ApplicationUserManager _userManager;
+
         public ManageController()
         {
         }
@@ -23,8 +25,6 @@
         {
             UserManager = userManager;
         }
-
-        private ApplicationUserManager _userManager;
 
         public ApplicationUserManager UserManager
         {
@@ -321,6 +321,17 @@
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
 
+        public enum ManageMessageId
+        {
+            AddPhoneSuccess,
+            ChangePasswordSuccess,
+            SetTwoFactorSuccess,
+            SetPasswordSuccess,
+            RemoveLoginSuccess,
+            RemovePhoneSuccess,
+            Error
+        }
+
         private IAuthenticationManager AuthenticationManager
         {
             get
@@ -363,17 +374,6 @@
             }
 
             return false;
-        }
-
-        public enum ManageMessageId
-        {
-            AddPhoneSuccess,
-            ChangePasswordSuccess,
-            SetTwoFactorSuccess,
-            SetPasswordSuccess,
-            RemoveLoginSuccess,
-            RemovePhoneSuccess,
-            Error
         }
 
 #endregion

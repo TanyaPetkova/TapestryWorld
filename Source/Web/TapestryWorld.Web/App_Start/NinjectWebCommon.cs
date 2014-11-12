@@ -4,7 +4,6 @@
 namespace TapestryWorld.Web.App_Start
 {
     using System;
-    using System.Data.Entity;
     using System.Web;
 
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
@@ -13,6 +12,7 @@ namespace TapestryWorld.Web.App_Start
 
     using TapestryWorld.Data;
     using TapestryWorld.Data.Common.Repository;
+    using TapestryWorld.Data.Repositories.Base;
 
     public static class NinjectWebCommon
     {
@@ -64,7 +64,9 @@ namespace TapestryWorld.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<DbContext>().To<ApplicationDbContext>();
+            kernel.Bind<ITapestryWorldData>().To<TapestryWorldData>();
+
+            kernel.Bind<ITapestryWorldDbContext>().To<TapestryWorldDbContext>();
 
             kernel.Bind(typeof(IDeletableEntityRepository<>))
                 .To(typeof(GenericRepository<>));

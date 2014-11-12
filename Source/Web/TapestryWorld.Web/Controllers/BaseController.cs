@@ -2,15 +2,15 @@
 {
     using System.Web.Mvc;
 
-    using TapestryWorld.Data.Models;
+    using TapestryWorld.Data;
 
     public abstract class BaseController : Controller
     {
-        protected User CurrentUser { get; set; }
+        protected ITapestryWorldData data;
 
-        [NonAction]
-        public void SystemSettings()
+        public BaseController(ITapestryWorldData data)
         {
+            this.data = data;  
         }
     }
 }

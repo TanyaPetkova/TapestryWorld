@@ -1,14 +1,16 @@
-﻿namespace TapestryWorld.Data.Common.Repository
+﻿namespace TapestryWorld.Data.Repositories.Base
 {
+    using System;
     using System.Data.Entity;
     using System.Linq;
 
     using TapestryWorld.Data.Common.Models;
+    using TapestryWorld.Data.Common.Repository;
 
     public class DeletableEntityRepository<T> : GenericRepository<T>, IDeletableEntityRepository<T>
         where T : class, IDeletableEntity
     {
-        public DeletableEntityRepository(DbContext context)
+        public DeletableEntityRepository(ITapestryWorldDbContext context)
             : base(context)
         {
         }
@@ -21,6 +23,15 @@
         public IQueryable<T> AllWithDeleted()
         {
             return base.All();
+        }
+
+        public override void Delete(T entity)
+        {
+            entity.DeletedOn = DateTime.Now;
+            entity.IsDeleted = true;
+
+            var entry = this.Context.Entry(entity);
+            entry.State = EntityState.Modified;
         }
     }
 }

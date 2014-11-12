@@ -54,9 +54,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationDbContext.cs" />
+    <Compile Include="TapestryWorldData.cs" />
+    <Compile Include="TapestryWorldDbContext.cs" />
+    <Compile Include="ITapestryWorldData.cs" />
+    <Compile Include="ITapestryWorldDbContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Base\DeletableEntityRepository.cs" />
+    <Compile Include="Repositories\Base\GenericRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TapestryWorld.Data.Common\TapestryWorld.Data.Common.csproj">
@@ -67,10 +76,6 @@
       <Project>{637863d6-8f41-47b2-8e8c-71b890011547}</Project>
       <Name>TapestryWorld.Data.Models</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

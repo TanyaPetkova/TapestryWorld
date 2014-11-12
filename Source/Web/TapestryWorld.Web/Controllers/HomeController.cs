@@ -1,19 +1,16 @@
 ﻿namespace TapestryWorld.Web.Controllers
 {
+    using System.Linq;
     using System.Web.Mvc;
 
-    using AutoMapper.QueryableExtensions;
-    using TapestryWorld.Data.Common.Repository;
-    using TapestryWorld.Data.Models;
-    using TapestryWorld.Web.ViewModels.Home;
+    using TapestryWorld.Data;
 
     public class HomeController : BaseController
     {
-        private IRepository<Tapestry> tapestries;
-
-        public HomeController(IRepository<Tapestry> tapestries)
+        public HomeController(ITapestryWorldData data)
+            : base(data)
         {
-            this.tapestries = tapestries;
+
         }
 
         public ActionResult Index()
@@ -23,7 +20,7 @@
 
         public ActionResult TestImage()
         {
-            return File("~/Content/3866_African Lions In The Savannah Grasses.jpg", "image/jpg");
+            return File("~/Content/Images/African Lions In The Savannah Grasses.jpg", "image/jpg");
         }
     }
 }

@@ -1,13 +1,15 @@
-﻿namespace TapestryWorld.Data.Common.Repository
+﻿namespace TapestryWorld.Data.Repositories.Base
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     using System.Linq;
 
+    using TapestryWorld.Data.Common.Repository;
+
     public class GenericRepository<T> : IRepository<T> where T : class
     {
-        public GenericRepository(DbContext context)
+        public GenericRepository(ITapestryWorldDbContext context)
         {
             if (context == null)
             {
@@ -20,7 +22,7 @@
 
         protected IDbSet<T> DbSet { get; set; }
 
-        protected DbContext Context { get; set; }
+        protected ITapestryWorldDbContext Context { get; set; }
 
         public virtual IQueryable<T> All()
         {
@@ -90,11 +92,6 @@
         public int SaveChanges()
         {
             return this.Context.SaveChanges();
-        }
-
-        public void Dispose()
-        {
-            this.Context.Dispose();
         }
     }
 }
