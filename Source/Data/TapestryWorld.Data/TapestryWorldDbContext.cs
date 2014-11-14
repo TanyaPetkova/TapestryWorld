@@ -38,6 +38,8 @@
 
         public virtual IDbSet<Vote> Votes { get; set; }
 
+        public virtual IDbSet<Image> Images { get; set; }
+
         public static TapestryWorldDbContext Create()
         {
             return new TapestryWorldDbContext();

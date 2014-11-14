@@ -26,13 +26,17 @@
 
         public StitchType StitchType { get; set; }
 
-        public int? Count { get; set; }
+        public int? ItemsInStock { get; set; }
+
+        public int SoldItems { get; set; }
 
         public int? DimensionId { get; set; }
 
         public virtual Dimension Dimension { get; set; }
 
-        public byte[] Image { get; set; }
+        public int ImageId { get; set; }
+
+        public virtual Image Image { get; set; }
 
         public int? CategoryId { get; set; }
 

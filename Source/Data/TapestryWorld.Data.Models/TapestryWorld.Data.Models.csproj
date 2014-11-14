@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Comment.cs" />
+    <Compile Include="Image.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Dimension.cs" />

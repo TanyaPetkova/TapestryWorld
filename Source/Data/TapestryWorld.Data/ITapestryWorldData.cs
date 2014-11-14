@@ -21,6 +21,8 @@
 
         IRepository<User> Users { get; }
 
+        IRepository<Image> Images { get; }
+
         int SaveChanges();
     }
 }

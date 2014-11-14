@@ -15,7 +15,13 @@
         [Key]
         public int Id { get; set; }
 
-        public byte[] ProductImage { get; set; }
+        public int ImageId { get; set; }
+
+        public Image Image { get; set; }
+
+        public int CategoryId { get; set; }
+
+        public Category Category { get; set; }
 
         public virtual ICollection<User> Users { get; set; }
 
