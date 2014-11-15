@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
 
     public class Tapestry 
@@ -22,7 +23,8 @@
 
         public decimal Price { get; set; }
 
-        public bool? InStock { get; set; }
+        [DefaultValue("false")]
+        public bool InStock { get; set; }
 
         public StitchType StitchType { get; set; }
 
@@ -34,7 +36,7 @@
 
         public virtual Dimension Dimension { get; set; }
 
-        public int ImageId { get; set; }
+        public int ImageId { get; set; } 
 
         public virtual Image Image { get; set; }
 

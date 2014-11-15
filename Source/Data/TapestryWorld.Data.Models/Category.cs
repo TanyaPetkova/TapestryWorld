@@ -15,7 +15,7 @@
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        [Required]  
         public string Name { get; set; }
 
         public virtual ICollection<Tapestry> Tapestries { get; set; }

@@ -7,7 +7,6 @@
     {
         public StitchedTapestry()
         {
-            this.Users = new HashSet<User>();
             this.Comments = new HashSet<Comment>();
             this.Votes = new HashSet<Vote>();
         }
@@ -17,13 +16,11 @@
 
         public int ImageId { get; set; }
 
-        public Image Image { get; set; }
+        public virtual Image Image { get; set; }
 
-        public int CategoryId { get; set; }
+        public string AuthorId { get; set; }
 
-        public Category Category { get; set; }
-
-        public virtual ICollection<User> Users { get; set; }
+        public virtual User Author { get; set; }
 
         public virtual ICollection<Comment> Comments { get; set; }
 

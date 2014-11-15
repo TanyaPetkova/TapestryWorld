@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Security.Claims;
     using System.Threading.Tasks;
@@ -17,13 +18,14 @@
             this.CreatedOn = DateTime.Now;
             this.Tapestries = new HashSet<Tapestry>();
             this.StitchedTapestries = new HashSet<StitchedTapestry>();
-            this.Comments = new HashSet<Comment>();
-            this.Votes = new HashSet<Vote>();
         }
-
+        
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
+
+        [DefaultValue(10)]
+        public int Points { get; set; }
 
         public DateTime CreatedOn { get; set; }
 
@@ -40,9 +42,6 @@
 
         public virtual ICollection<StitchedTapestry> StitchedTapestries { get; set; }
 
-        public virtual ICollection<Comment> Comments { get; set; }
-
-        public virtual ICollection<Vote> Votes { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {
