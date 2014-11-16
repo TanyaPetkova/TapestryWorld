@@ -4,23 +4,27 @@
     using System.Web.Mvc;
 
     using TapestryWorld.Data;
+    using TapestryWorld.Web.Infrastructure.Services.Contracts;
 
     public class HomeController : BaseController
     {
-        public HomeController(ITapestryWorldData data)
+        private IHomeService homeService;
+
+        public HomeController(ITapestryWorldData data, IHomeService homeService)
             : base(data)
         {
-
+            this.homeService = homeService;
         }
 
+        //[OutputCache(Duration = 60 * 60)]
         public ActionResult Index()
         {
-            return View();
+            return View(this.homeService.GetIndexViewModel(5));
         }
 
-        public ActionResult TestImage()
+        public ActionResult Error()
         {
-            return File("~/Content/Images/African Lions In The Savannah Grasses.jpg", "image/jpg");
+            return View();
         }
     }
 }
