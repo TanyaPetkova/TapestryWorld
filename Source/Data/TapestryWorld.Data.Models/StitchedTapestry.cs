@@ -16,7 +16,12 @@
 
         public int ImageId { get; set; }
 
+        [Required]
         public virtual Image Image { get; set; }
+
+        public int CategoryId { get; set; }
+
+        public virtual Category Category { get; set; }
 
         public string AuthorId { get; set; }
 

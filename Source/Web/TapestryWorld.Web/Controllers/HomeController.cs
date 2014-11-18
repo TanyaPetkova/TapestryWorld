@@ -4,6 +4,7 @@
     using System.Web.Mvc;
 
     using TapestryWorld.Data;
+    using TapestryWorld.Data.Common;
     using TapestryWorld.Web.Infrastructure.Services.Contracts;
 
     public class HomeController : BaseController
@@ -13,18 +14,18 @@
         public HomeController(ITapestryWorldData data, IHomeService homeService)
             : base(data)
         {
-            this.homeService = homeService;
+            this.homeService = homeService; 
         }
 
         //[OutputCache(Duration = 60 * 60)]
         public ActionResult Index()
         {
-            return View(this.homeService.GetIndexViewModel(5));
+            return this.View(this.homeService.GetIndexViewModel(GlobalConstants.ItemsOnHomePage));
         }
 
         public ActionResult Error()
         {
-            return View();
+            return this.View();
         }
     }
 }

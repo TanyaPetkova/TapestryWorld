@@ -1,0 +1,19 @@
+﻿@using TapestryWorld.Web.ViewModels.Comments;
+
+@model PostCommentViewModel
+@using (Ajax.BeginForm("PostComment", "Comments",
+            new AjaxOptions
+            {
+                HttpMethod = "Post",
+                InsertionMode = InsertionMode.InsertAfter,
+                UpdateTargetId = "comments"
+            }))
+{
+    @Html.AntiForgeryToken()
+    
+    @Html.HiddenFor(m => m.StitchedTapestryId)
+    @Html.EditorFor(m => m.Content)
+    <div class="text-center">
+        <input type="submit" class="btn btn-default" value="Submit comment" />
+    </div>
+}

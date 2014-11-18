@@ -26,7 +26,7 @@
             return base.BeginExecute(requestContext, callback, state);
         }
 
-        public ActionResult GetImage(int id)
+        public ActionResult GetTapestryImage(int id)
         {
             var image = this.Data.Tapestries.GetById(id).Image;
             if (image == null)
@@ -34,7 +34,19 @@
                 throw new HttpException(404, "Image not found");
             }
 
-            return File(image.Content, "image/jpg"); 
+            return this.File(image.Content, "image/jpg"); 
+        }
+
+        [Authorize]
+        public ActionResult GetStitchedTapestryImage(int id)
+        {
+            var image = this.Data.StitchedTapestries.GetById(id).Image;
+            if (image == null)
+            {
+                throw new HttpException(404, "Image not found");
+            }
+
+            return this.File(image.Content, "image/jpg");
         }
     }
 }

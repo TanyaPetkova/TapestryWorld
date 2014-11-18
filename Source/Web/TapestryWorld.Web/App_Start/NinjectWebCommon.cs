@@ -13,6 +13,8 @@ namespace TapestryWorld.Web.App_Start
     using TapestryWorld.Data;
     using TapestryWorld.Data.Common.Repository;
     using TapestryWorld.Data.Repositories.Base;
+    using TapestryWorld.Web.Infrastructure.Services;
+    using TapestryWorld.Web.Infrastructure.Services.Contracts;
 
     public static class NinjectWebCommon
     {
@@ -67,6 +69,8 @@ namespace TapestryWorld.Web.App_Start
             kernel.Bind<ITapestryWorldData>().To<TapestryWorldData>();
 
             kernel.Bind<ITapestryWorldDbContext>().To<TapestryWorldDbContext>();
+
+            kernel.Bind<IHomeService>().To<HomeService>();
 
             kernel.Bind(typeof(IDeletableEntityRepository<>))
                 .To(typeof(GenericRepository<>));

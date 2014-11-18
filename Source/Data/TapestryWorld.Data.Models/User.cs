@@ -2,15 +2,15 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations.Schema;
     using System.Security.Claims;
     using System.Threading.Tasks;
 
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
 
-    public class User : IdentityUser // , IAuditInfo, IDeletableEntity
+    using TapestryWorld.Data.Common.Models;
+
+    public class User : IdentityUser, IAuditInfo, IDeletableEntity
     {
         public User()
         {
@@ -19,13 +19,10 @@
             this.Tapestries = new HashSet<Tapestry>();
             this.StitchedTapestries = new HashSet<StitchedTapestry>();
         }
-        
+
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
-
-        [DefaultValue(10)]
-        public int Points { get; set; }
 
         public DateTime CreatedOn { get; set; }
 
@@ -33,7 +30,6 @@
 
         public DateTime? ModifiedOn { get; set; }
 
-        [Index]
         public bool IsDeleted { get; set; }
 
         public DateTime? DeletedOn { get; set; }
@@ -41,7 +37,6 @@
         public virtual ICollection<Tapestry> Tapestries { get; set; }
 
         public virtual ICollection<StitchedTapestry> StitchedTapestries { get; set; }
-
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {

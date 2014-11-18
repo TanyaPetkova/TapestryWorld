@@ -1,8 +1,11 @@
 ﻿namespace TapestryWorld.Data.Models
 {
+    using System;
     using System.ComponentModel.DataAnnotations;
 
-    public class Comment
+    using TapestryWorld.Data.Common.Models;
+
+    public class Comment : IAuditInfo
     {
         [Key]
         public int Id { get; set; }
@@ -17,5 +20,11 @@
         public int StitchedTapestryId { get; set; }
 
         public virtual StitchedTapestry StitchedTapestry { get; set; }
+
+        public DateTime CreatedOn { get; set; }
+
+        public bool PreserveCreatedOn { get; set; }
+
+        public DateTime? ModifiedOn { get; set; }
     }
 }

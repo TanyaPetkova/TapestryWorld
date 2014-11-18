@@ -54,10 +54,10 @@
             var model = new IndexViewModel
             {
                 HasPassword = HasPassword(),
-                PhoneNumber = await UserManager.GetPhoneNumberAsync(User.Identity.GetUserId()),
-                TwoFactor = await UserManager.GetTwoFactorEnabledAsync(User.Identity.GetUserId()),
-                Logins = await UserManager.GetLoginsAsync(User.Identity.GetUserId()),
-                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(User.Identity.GetUserId())
+                PhoneNumber = await this.UserManager.GetPhoneNumberAsync(User.Identity.GetUserId()),
+                TwoFactor = await this.UserManager.GetTwoFactorEnabledAsync(User.Identity.GetUserId()),
+                Logins = await this.UserManager.GetLoginsAsync(User.Identity.GetUserId()),
+                BrowserRemembered = await this.AuthenticationManager.TwoFactorBrowserRememberedAsync(User.Identity.GetUserId())
             };
             return View(model);
         }

@@ -14,11 +14,6 @@
 
         private readonly Dictionary<Type, object> repositories = new Dictionary<Type, object>();
 
-        public TapestryWorldData()
-            : this(new TapestryWorldDbContext())
-        {
-        }
-
         public TapestryWorldData(ITapestryWorldDbContext context)
         {
             this.context = context;

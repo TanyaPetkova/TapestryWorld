@@ -1,0 +1,65 @@
+﻿@using TapestryWorld.Web.ViewModels.Tapestry;
+
+@model TapestryDetailsViewModel
+@{
+    ViewBag.Title = "Tapestry Details";
+}
+
+<h2>@Model.TapestryName</h2>
+
+<div class="row">
+
+    <div class="col-md-6">
+        @if (Model.ImageId != null)
+        {
+            <img src="@Url.Action("GetTapestryImage", "Tapestry", new { @Model.Id})" alt="@Model.TapestryName" width="400" height="400" />
+        }
+
+        <h4>
+            <strong>Price:</strong>
+            @Model.TapestryPrice
+        </h4>
+    </div> 
+
+    <div class="col-md-6">
+        <h4>
+            <strong>Category:</strong>
+            @Model.CategoryName
+        </h4>
+        <br />
+        <h4>
+            <strong>Designer name:</strong>
+            @Model.DesignerName
+        </h4>
+        <br />
+        <h4>
+            <strong>Stitch type:</strong>
+            @Model.StitchType
+        </h4>
+        <br />
+        <h4>
+            <strong>Dimensions</strong>
+            @Model.Width/@Model.Height
+        </h4>
+        <br />
+        <h4>
+            <strong>In Stock:</strong>
+            @if (Model.InStock)
+            {
+                <span>Yes</span>
+            }
+            else
+            {
+                <span>No</span>
+            }
+        </h4>
+
+        @if (this.User.Identity.IsAuthenticated)
+        {
+            <p>
+                <a class="btn btn-primary " href="@Url.Action("Buy", "Order", new { @Model.Id})">Buy</a>
+            </p>
+        }
+    </div>
+</div>
+

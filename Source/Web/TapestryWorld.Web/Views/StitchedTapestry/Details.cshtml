@@ -1,0 +1,41 @@
+﻿@using TapestryWorld.Web.ViewModels.Comments;
+@using TapestryWorld.Web.ViewModels.StitchedTapestry;
+
+@model StitchedTapestryDetailsViewModel
+@{
+    ViewBag.Title = "Stitched Tapestry Comments";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="row">
+
+    <div class="col-md-6">
+        @if (Model.ImageId != null)
+        {
+            <img src="@Url.Action("GetStitchedTapestryImage", "StitchedTapestry", new { @Model.Id})" width="400" height="400" />
+        }
+        <br />
+        <br />
+        <p>
+            <strong>Author:</strong>
+            @Model.AuthorName
+        </p>
+        @if (this.User.Identity.IsAuthenticated)
+        {
+            @Html.Partial("_PostCommentPartial", new PostCommentViewModel(Model.Id))
+        }
+    </div>
+
+    <div id="comments" class="col-md-6" style="word-wrap:break-word">
+        @foreach (var comment in Model.Comments)
+        {
+            @Html.Partial("_CommentPartial", comment)
+        }
+    </div>
+</div>
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryajax");
+    @Scripts.Render("~/bundles/jqueryval");
+}

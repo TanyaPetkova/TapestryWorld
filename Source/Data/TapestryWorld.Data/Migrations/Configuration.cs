@@ -64,6 +64,9 @@ namespace TapestryWorld.Data.Migrations
                 return;
             }
 
+            var users = context.Users.ToList();
+            var categories = context.Categories.ToList();
+
             List<StitchedTapestry> tapestries = new List<StitchedTapestry>()
             {
                 new StitchedTapestry()
@@ -72,7 +75,8 @@ namespace TapestryWorld.Data.Migrations
                      {
                         Content = ConvertImageToByteArray(StitchedLandscapeImagePath)
                      },
-                     Author = context.Users.FirstOrDefault()
+                     Author = users[this.random.GetRandomNumber(0, users.Count - 1)],
+                     Category = categories[4]
                 },
                 new StitchedTapestry()
                 {
@@ -80,7 +84,8 @@ namespace TapestryWorld.Data.Migrations
                      {
                           Content = ConvertImageToByteArray(StitchedAngelImagePath)
                      },
-                      Author = context.Users.FirstOrDefault()
+                     Author = users[this.random.GetRandomNumber(0, users.Count - 1)],
+                     Category = categories[2]
                 },
                  new StitchedTapestry()
                 {
@@ -88,7 +93,8 @@ namespace TapestryWorld.Data.Migrations
                      {
                           Content = ConvertImageToByteArray(StitchedCleopatra)
                      },
-                      Author = context.Users.FirstOrDefault()
+                     Author = users[this.random.GetRandomNumber(0, users.Count - 1)],
+                     Category = categories[0]
                 },
                  new StitchedTapestry()
                 {
@@ -96,7 +102,8 @@ namespace TapestryWorld.Data.Migrations
                      {
                           Content = ConvertImageToByteArray(StitchedFlowersFaceImagePath)
                      },
-                      Author = context.Users.FirstOrDefault()
+                     Author = users[this.random.GetRandomNumber(0, users.Count - 1)],
+                     Category = categories[3]
                 },
                  new StitchedTapestry()
                 {
@@ -104,7 +111,8 @@ namespace TapestryWorld.Data.Migrations
                      {
                           Content = ConvertImageToByteArray(StitchedGothicPrayerImagePath)
                      },
-                      Author = context.Users.FirstOrDefault()
+                     Author = users[this.random.GetRandomNumber(0, users.Count - 1)],
+                     Category = categories[1]
                 },
                  new StitchedTapestry()
                 {
@@ -112,7 +120,8 @@ namespace TapestryWorld.Data.Migrations
                      {
                           Content = ConvertImageToByteArray(StitchedIndianImagePath)
                      },
-                      Author = context.Users.FirstOrDefault()
+                     Author = users[this.random.GetRandomNumber(0, users.Count - 1)],
+                     Category = categories[2]
                 },
                  new StitchedTapestry()
                 {
@@ -120,7 +129,8 @@ namespace TapestryWorld.Data.Migrations
                      {
                           Content = ConvertImageToByteArray(StitchedWindowImagePath)
                      },
-                      Author = context.Users.FirstOrDefault()
+                     Author = users[this.random.GetRandomNumber(0, users.Count - 1)],
+                     Category = categories[4]
                 }
             };
 
@@ -135,6 +145,8 @@ namespace TapestryWorld.Data.Migrations
                 return;
             }
 
+            var users = context.Users.ToList();
+
             foreach (var tapestry in context.StitchedTapestries)
             {
                 for (int i = 0; i < 10; i++)
@@ -142,7 +154,8 @@ namespace TapestryWorld.Data.Migrations
                     tapestry.Comments.Add(new Comment()
                     {
                         Content = this.random.GetRandomStringWithRandomLength(10, 100),
-                        Author = context.Users.FirstOrDefault()
+                        Author = users[this.random.GetRandomNumber(0, users.Count - 1)],
+                        CreatedOn = DateTime.Now
                     });
                 }
             }
@@ -299,7 +312,7 @@ namespace TapestryWorld.Data.Migrations
                       StitchType = StitchType.HalfStitch,
                       Image = new TapestryImage()
                       {
-                          Content = ConvertImageToByteArray(CleopatraImagePath)
+                          Content = ConvertImageToByteArray(this.CleopatraImagePath)
                       }
                  },
                  new Tapestry
@@ -316,13 +329,14 @@ namespace TapestryWorld.Data.Migrations
                       StitchType = StitchType.HalfStitch,
                       Image = new TapestryImage()
                       {
-                          Content = ConvertImageToByteArray(IndianWithLeopardImagePath)
+                          Content = ConvertImageToByteArray(this.IndianWithLeopardImagePath)
                       }
                  }
             };
 
             context.Tapestries.AddOrUpdate(tapestries.ToArray());
             context.Categories.AddOrUpdate(categories.ToArray());
+            context.SaveChanges();
         }
 
         private void SeedRoles(TapestryWorldDbContext context)
@@ -343,7 +357,8 @@ namespace TapestryWorld.Data.Migrations
                 var user = new User
                 {
                     Email = string.Format("{0}@{1}.com", this.random.GetRandomStringWithRandomLength(6, 16), this.random.GetRandomStringWithRandomLength(6, 16)),
-                    UserName = this.random.GetRandomStringWithRandomLength(6, 16)
+                    UserName = this.random.GetRandomStringWithRandomLength(6, 16),
+                    CreatedOn = DateTime.Now                    
                 };
 
                 this.userManager.Create(user, "123456");
@@ -357,6 +372,8 @@ namespace TapestryWorld.Data.Migrations
 
             this.userManager.Create(adminUser, "123456");
             this.userManager.AddToRole(adminUser.Id, GlobalConstants.AdminRole);
+
+            context.SaveChanges();
         }
 
         private static byte[] ConvertImageToByteArray(string fileName)

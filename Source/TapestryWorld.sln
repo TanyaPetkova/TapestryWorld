@@ -5,23 +5,15 @@ VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{0F310595-5623-4CC3-86AF-01F010D19876}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logic", "Logic", "{FD286A9B-D3EC-4A1A-8C86-DA9A44D59B5D}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{34C3DBD4-E354-4A7F-89C0-A24BEB335E32}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TapestryWorld.Common", "TapestryWorld.Common\TapestryWorld.Common.csproj", "{6710C1CA-D01B-45D7-83E4-DC6065A0A3BF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TapestryWorld.Data", "Data\TapestryWorld.Data\TapestryWorld.Data.csproj", "{DDECF419-67FF-467D-8C51-95125AA267E2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TapestryWorld.Data.Models", "Data\TapestryWorld.Data.Models\TapestryWorld.Data.Models.csproj", "{637863D6-8F41-47B2-8E8C-71B890011547}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4EE1C166-5F3E-4DD9-81D6-A3107F34D965}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TapestryWorld.Web", "Web\TapestryWorld.Web\TapestryWorld.Web.csproj", "{39A81CA6-5993-43D8-864D-A042EA4BC7F7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TapestryWorld.Data.Common", "Data\TapestryWorld.Data.Common\TapestryWorld.Data.Common.csproj", "{DF314F93-BE90-4710-8010-BF1F11C6E746}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TapestryWorld.Web.Infrastructure", "Web\TapestryWorld.Web.Infrastructure\TapestryWorld.Web.Infrastructure.csproj", "{3C730862-00C9-49C6-BDE7-7BF9DCF632CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6710C1CA-D01B-45D7-83E4-DC6065A0A3BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6710C1CA-D01B-45D7-83E4-DC6065A0A3BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6710C1CA-D01B-45D7-83E4-DC6065A0A3BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6710C1CA-D01B-45D7-83E4-DC6065A0A3BF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DDECF419-67FF-467D-8C51-95125AA267E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DDECF419-67FF-467D-8C51-95125AA267E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDECF419-67FF-467D-8C51-95125AA267E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -49,10 +37,6 @@ Global
 		{DF314F93-BE90-4710-8010-BF1F11C6E746}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF314F93-BE90-4710-8010-BF1F11C6E746}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF314F93-BE90-4710-8010-BF1F11C6E746}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3C730862-00C9-49C6-BDE7-7BF9DCF632CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3C730862-00C9-49C6-BDE7-7BF9DCF632CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3C730862-00C9-49C6-BDE7-7BF9DCF632CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3C730862-00C9-49C6-BDE7-7BF9DCF632CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,6 +46,5 @@ Global
 		{637863D6-8F41-47B2-8E8C-71B890011547} = {0F310595-5623-4CC3-86AF-01F010D19876}
 		{39A81CA6-5993-43D8-864D-A042EA4BC7F7} = {34C3DBD4-E354-4A7F-89C0-A24BEB335E32}
 		{DF314F93-BE90-4710-8010-BF1F11C6E746} = {0F310595-5623-4CC3-86AF-01F010D19876}
-		{3C730862-00C9-49C6-BDE7-7BF9DCF632CE} = {34C3DBD4-E354-4A7F-89C0-A24BEB335E32}
 	EndGlobalSection
 EndGlobal

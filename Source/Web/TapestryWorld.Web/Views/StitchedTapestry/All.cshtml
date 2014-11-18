@@ -1,0 +1,32 @@
+﻿@using TapestryWorld.Web.ViewModels.StitchedTapestry;
+
+@model IList<GalleryStitchedTapestryViewModel>
+@{
+    ViewBag.Title = "Gallery";
+}
+
+<h2>Gallery</h2>
+
+<div class="container">
+    <div class="row">
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+            var tapestry = Model.ElementAt(i);
+            <div class="col-md-4">
+                <img src="@Url.Action("GetStitchedTapestryImage", "StitchedTapestry", new { tapestry.Id})" width="200" height="200" />
+                <br />
+                <br />
+                <p>
+                    <strong>Author:</strong>
+                    @tapestry.AuthorName
+                </p>
+                <p>
+                    <a class="btn btn-default" href="/StitchedTapestry/Details/@tapestry.Id">Comments</a>
+                </p>
+            </div>
+        }
+    </div>
+</div>
+
+
+

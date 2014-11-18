@@ -1,11 +1,15 @@
-﻿<!DOCTYPE html>
+﻿@using TapestryWorld.Data.Common;
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Tapestry World</title>
     @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
     @Styles.Render("~/Content/kendo");
+    @RenderSection("styles", required: false)
 </head>
 <body>
     <div class="navbar navbar-default">
@@ -16,15 +20,26 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Tapestry World", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Tapestry World", "Index", "Home", new { area = string.Empty }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav" id="main-menu">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = string.Empty }, null)</li>
                     @if (this.User.Identity.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("Catalog", "All", "Tapestry")</li>
-                        <li>@Html.ActionLink("Add stitched tapestry image", "Upload", "StitchedTapestry")</li>
+                        <li>@Html.ActionLink("Stitched Tapestries", "All", "StitchedTapestry", new { area = string.Empty }, null)</li>
+                        <li>@Html.ActionLink("Add stitched tapestry image", "Add", "StitchedTapestry", new { area = string.Empty }, null)</li>
+
+                        if (User.IsInRole(GlobalConstants.AdminRole))
+                        {
+                            <li>
+                                Administration
+                                <ul>
+                                    <li>@Html.ActionLink("Categories", "Index", "Categories", new { area = "Administration" }, null)</li>
+                                </ul>
+                            </li>
+                        }
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -39,11 +54,9 @@
             <p>&copy; @DateTime.Now.Year - Tapestry World</p>
         </footer>
     </div>
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/kendo");
-
+    @Scripts.Render("~/bundles/kendo")
     @RenderSection("scripts", required: false)
 
     <script type="text/javascript">

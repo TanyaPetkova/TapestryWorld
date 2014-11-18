@@ -10,6 +10,7 @@
         public Category()
         {
             this.Tapestries = new HashSet<Tapestry>();
+            this.StitchedTapestries = new HashSet<StitchedTapestry>();
         }
 
         [Key]
@@ -19,5 +20,7 @@
         public string Name { get; set; }
 
         public virtual ICollection<Tapestry> Tapestries { get; set; }
+
+        public virtual ICollection<StitchedTapestry> StitchedTapestries { get; set; }
     }
 }
